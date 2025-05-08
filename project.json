@@ -1,0 +1,38 @@
+[
+  {
+    "img": "./image/image-template-one.jpeg",
+    "title": "template one",
+    "category": "A clean and responsive website template built as part of the Elzero Web School course. Developed using only HTML and CSS, it showcases layout structuring, responsive design, and elegant UI elements. Ideal for practicing front-end skills and building modern static websites.",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "img": "./image/image-template-two.jpeg",
+    "title": "template Two",
+    "category": "A clean and responsive website template built as part of the Elzero Web School course. Developed using only HTML and CSS, it showcases layout structuring, responsive design, and elegant UI elements. Ideal for practicing front-end skills and building modern static websites.",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "img": "./image/image-online-store.jpeg",
+    "title": "Ecommerce Website",
+    "category": "A fully responsive online store built with HTML, CSS, and JavaScript. It features a product catalog, interactive UI, add-to-cart functionality, and smooth user experience across devices. Designed with modern layouts and animations to enhance shopping engagement.",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "img": "./image/imag-profile2.jpeg",
+    "title": "Profile",
+    "category": "A personal profile webpage built with HTML, CSS, and JavaScript. It includes a responsive layout, smooth animations, and interactive sections like About Me, Skills, and Contact. Designed to highlight personal information in a modern and user-friendly way.",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  }
+]

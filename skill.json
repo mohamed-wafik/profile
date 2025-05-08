@@ -1,0 +1,34 @@
+[
+  {
+    "img": "./image/logo_c++.png",
+    "name": "C++"
+  },
+  {
+    "img": "./image/logo_oop.png",
+    "name": "OOP"
+  },
+  {
+    "img": "./image/logo-html-5-.png",
+    "name": "HTML5"
+  },
+  {
+    "img": "./image/logo-css-3-2048.png",
+    "name": "CSS3"
+  },
+  {
+    "img": "./image/logo_js.png",
+    "name": "Javascript"
+  },
+  {
+    "img": "./image/logo-sql-2.webp",
+    "name": "SQL"
+  },
+  {
+    "img": "./image/logo_typescrit.png",
+    "name": "Typescript"
+  },
+  {
+    "img": "./image/logo-git-2.png",
+    "name": "git"
+  }
+]
