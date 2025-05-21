@@ -18,7 +18,7 @@
     }
   },
   {
-    "img": "./image/image-online-store.jpeg",
+    "img": "./image/online_bulid_image.jpeg",
     "title": "Ecommerce Website",
     "category": "A fully responsive online store built with HTML, CSS, and JavaScript. It features a product catalog, interactive UI, add-to-cart functionality, and smooth user experience across devices. Designed with modern layouts and animations to enhance shopping engagement.",
     "links": {

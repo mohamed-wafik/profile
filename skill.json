@@ -30,5 +30,9 @@
   {
     "img": "./image/logo-git-2.png",
     "name": "git"
+  },
+  {
+    "img": "./image/logo_sass.png",
+    "name": "sass"
   }
 ]
