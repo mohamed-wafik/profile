@@ -49,40 +49,65 @@ document
     });
   });
 let mySkill = document.querySelector(".my-skills .containter");
-fetch("./skill.json")
-  .then((response) => response.json())
-  .then((date) => {
-    mySkill.innerHTML = "";
-    date.forEach((skill) => {
-      mySkill.innerHTML += `
-          <div class="box">
-            <div class="image"><img src="${skill.img}" alt="" /></div>
-            <div class="text">${skill.name}</div>
-          </div>
-        `;
-    });
-  });
-let myProject = document.querySelector(".my-project .containter");
-fetch("./project.json")
-  .then((response) => response.json())
-  .then((date) => {
-    myProject.innerHTML = "";
-    date.forEach((skill, index) => {
-      if (index === 4) {
-        return false;
-      }
-      myProject.innerHTML += `
+async function fetchSkills() {
+  try {
+    const response = await fetch("./skill.json");
+    if (!response.ok) throw new Error("Failed to fetch Skills");
+    const data = await response.json();
+    displaySkills(data);
+  } catch (err) {
+    console.error("Error : ", err);
+    mySkill.innerHTML = `<p class="err-fetch">Something went wrong while loading Skills.</p>`;
+  }
+}
+function displaySkills(data) {
+  mySkill.innerHTML = "";
+  data.forEach((skill) => {
+    mySkill.innerHTML += `
         <div class="box">
-          <div class="image">
-            <img src="${skill.img}" alt="" />
-            <div class="btns">
-              <a href="${skill.links.view}" class="btn"><i class="fa-solid fa-eye"></i> View</a>
-              <a href="${skill.links.code}" class="btn"><i class="fa-solid fa-code"></i> Code</a>
-            </div>
-          </div>
-          <h3 class="name-project">${skill.title}</h3>
-          <p class="text">${skill.category}</p>
+          <div class="image"><img src="${skill.img}" alt="" /></div>
+          <div class="text">${skill.name}</div>
         </div>
-        `;
-    });
+      `;
   });
+}
+fetchSkills();
+let myProject = document.querySelector(".my-project .containter");
+async function fetchProject() {
+  try {
+    const response = await fetch("./project.json");
+    if (!response.ok) throw new Error("Failed to fetch Projects");
+    const data = await response.json();
+    displayProjects(data);
+  } catch (err) {
+    console.error("Error : ", err);
+    myProject.innerHTML = `<p class="err-fetch">Something went wrong while loading projects.</p>`;
+  }
+}
+function displayProjects(data) {
+  myProject.innerHTML = "";
+  data.forEach((skill, index) => {
+    if (index === 4) {
+      return false;
+    }
+    let langange = "";
+    skill.lang.forEach((lang) => {
+      langange += `<span class="lang ${lang}">${lang}</span>`;
+    });
+    myProject.innerHTML += `
+      <div class="box">
+        <div class="image">
+          <img src="${skill.img}" alt="" />
+          <div class="btns">
+            <a href="${skill.links.view}" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+            <a href="${skill.links.code}" class="btn"><i class="fa-solid fa-code"></i> Code</a>
+          </div>
+        </div>
+        <h3 class="name-project">${skill.title}</h3>
+        <p class="text">${skill.category}</p>
+        <div class="languages">${langange}</div>
+      </div>
+      `;
+  });
+}
+fetchProject();
