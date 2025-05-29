@@ -116,20 +116,21 @@
     <div class="contact-us" data-section="contact" id="contact-us">
       <h2 class="spacial-handing">Contact Us</h2>
       <div class="containter">
-        <form action="">
+        <form action="" id="content-form">
           <input type="text" name="name" placeholder="Enter Your Name" />
           <input
             type="text"
             name="phone"
             placeholder="Enter Your Phone Number"
           />
-          <input type="email" name="mail" placeholder="Enter Your Email" />
+          <input type="email" name="email" placeholder="Enter Your Email" />
           <textarea
             name="message"
             placeholder="Enter Your Message"
             id=""
           ></textarea>
           <button type="submit" class="btn">Send</button>
+          <p id="form-status"></p>
         </form>
         <div class="info">
           <div class="box">
@@ -182,9 +183,12 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="year"></span> Mohamed Wafik. All Rights Reserved.</p>
+        <p>
+          &copy; <span id="year"></span> Mohamed Wafik. All Rights Reserved.
+        </p>
       </div>
     </footer>
-    <script src="main.js"></script>
+    <script src="./js/formToSheet.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
