@@ -296,9 +296,11 @@ header .containter nav .links li.active a {
   width: 50%;
   text-align: center;
 }
-@media (max-width: 1020px) {
+@media (max-width: 1024px) {
   .loading {
     --width-animation: 225px;
+    height: initial;
+    margin-top: 70px;
   }
   .profile-image img {
     width: 320px;
@@ -311,7 +313,7 @@ header .containter nav .links li.active a {
     font-size: 30px;
   }
 }
-@media (max-width: 850px) {
+@media (max-width: 900px) {
   .loading .intro {
     flex-wrap: wrap;
   }
