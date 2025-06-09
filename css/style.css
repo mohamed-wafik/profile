@@ -360,13 +360,13 @@ header .containter nav .links li.active a {
     padding-top: 40px;
   }
   .loading {
-    --width-animation: 185px;
+    --width-animation: 173px;
   }
   .loading .intro .text h2 {
-    font-size: 30px;
+    font-size: 28px
   }
   .loading .intro .text p {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 /* End loading  */
@@ -429,6 +429,14 @@ header .containter nav .links li.active a {
 @media (max-width: 500px) {
   .about-content h1 {
     font-size: 26px;
+  }
+}
+@media (max-width: 350px) {
+  .about-content h1 {
+    font-size: 23px;
+  }
+  .about-content p {
+    font-size: 14px;
   }
 }
 /* End About */
