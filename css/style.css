@@ -467,6 +467,15 @@ header .containter nav .links li.active a {
   font-weight: bold;
   text-transform: capitalize;
 }
+@media (max-width: 350px) {
+  .my-skills .containter {
+    gap: 15px;
+  }
+  .my-skills .containter .box {
+    width: 145px;
+    padding: 15px 10px;
+  }
+}
 /* End My Skills  */
 /* Start my Projects */
 .my-project {
