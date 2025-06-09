@@ -355,6 +355,20 @@ header .containter nav .links li.active a {
     font-size: 22px;
   }
 }
+@media (max-width: 350px) {
+  body {
+    padding-top: 40px;
+  }
+  .loading {
+    --width-animation: 185px;
+  }
+  .loading .intro .text h2 {
+    font-size: 30px;
+  }
+  .loading .intro .text p {
+    font-size: 25px;
+  }
+}
 /* End loading  */
 /* start About */
 .about-section {
