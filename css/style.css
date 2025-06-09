@@ -355,7 +355,7 @@ header .containter nav .links li.active a {
     font-size: 22px;
   }
 }
-@media (max-width: 350px) {
+@media (max-width: 385px) {
   body {
     padding-top: 40px;
   }
@@ -431,7 +431,7 @@ header .containter nav .links li.active a {
     font-size: 26px;
   }
 }
-@media (max-width: 350px) {
+@media (max-width: 385px) {
   .about-content h1 {
     font-size: 23px;
   }
@@ -475,7 +475,7 @@ header .containter nav .links li.active a {
   font-weight: bold;
   text-transform: capitalize;
 }
-@media (max-width: 350px) {
+@media (max-width: 385px) {
   .my-skills .containter {
     gap: 15px;
   }
