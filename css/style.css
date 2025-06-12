@@ -37,20 +37,20 @@ ul {
 }
 .btn {
   width: fit-content;
-  font-size: 20px;
+  font-size: 18px;
   padding: 12px 25px;
-  background-color: var(--accent-color);
-  color: var(--primary-color);
+  background: linear-gradient(135deg, #ff6f61, #e55a4f);
+  color: white;
   border: none;
   border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 4px 12px rgba(255, 111, 97, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(255, 111, 97, 0.4);
 }
 .btn:hover {
-  background-color: #e55a4f;
-  box-shadow: 0 6px 16px rgba(255, 111, 97, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.5);
 }
 .err-fetch {
   width: 100%;
@@ -172,6 +172,7 @@ header .containter nav .toggle-menu {
     justify-content: flex-start;
     z-index: 1000;
     background-color: var(--primary-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 111, 97, 0.1);
   }
   header .containter nav .links.open a {
     justify-content: flex-start;
@@ -549,6 +550,7 @@ header .containter nav .links li.active a {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 5;
+  line-clamp: 5;
   -webkit-box-orient: vertical;
 }
 .my-project .containter .box .languages {
@@ -588,17 +590,11 @@ header .containter nav .links li.active a {
   background-color: #3c873a;
 }
 .my-project .containter + .btn {
-  margin: 50px auto 0;
   display: block;
-  width: fit-content;
+  margin: 50px auto 0;
   font-size: 20px;
   padding: 10px 25px;
-  background-color: #ff6f61;
-  color: #fff;
   border-radius: 8px;
-  transition: 0.3s;
-  border: none;
-  cursor: pointer;
 }
 .my-project .containter + .btn:hover {
   background-color: #ff543d;
@@ -625,13 +621,14 @@ header .containter nav .links li.active a {
   padding: 15px;
   font-size: 16px;
   border-radius: 10px;
-  border: 1px solid var(--gray);
+  border: 1px solid #666;;
   color: var(--text-color);
 }
 .contact-us .containter form input:focus ,
 .contact-us .containter form textarea:focus {
   border-color: var(--accent-color);
   caret-color: var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-color);
   outline: none;
 }
 .contact-us .containter form textarea {
@@ -701,7 +698,6 @@ header .containter nav .links li.active a {
 footer {
   padding: 15px 0;
   font-size: 18px;
-  /* border-top: 1px solid var(--gray); */
   border-top: 1px solid #30363d;
   text-align: center;
 }
