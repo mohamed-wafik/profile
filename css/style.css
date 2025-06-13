@@ -484,6 +484,9 @@ header .containter nav .links li.active a {
     width: 145px;
     padding: 15px 10px;
   }
+  .my-skills .containter .box .text {
+    font-size: 22px;
+  }
 }
 /* End My Skills  */
 /* Start my Projects */
@@ -516,6 +519,7 @@ header .containter nav .links li.active a {
 }
 .my-project .containter .box .image img {
   max-width: 100%;
+  min-height: 100%;
   object-fit: cover;
 }
 .my-project .containter .box .image .btns {
@@ -617,11 +621,11 @@ header .containter nav .links li.active a {
 }
 .contact-us .containter form input ,
 .contact-us .containter form textarea {
-  background-color: transparent;
   padding: 15px;
   font-size: 16px;
   border-radius: 10px;
-  border: 1px solid #666;;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--text-color);
 }
 .contact-us .containter form input:focus ,
