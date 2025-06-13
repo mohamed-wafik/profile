@@ -300,8 +300,6 @@ header .containter nav .links li.active a {
 @media (max-width: 1024px) {
   .loading {
     --width-animation: 225px;
-    height: initial;
-    margin-top: 70px;
   }
   .profile-image img {
     width: 320px;
