@@ -21,7 +21,7 @@ body {
   background-color: var(--primary-color);
   color: var(--text-color);
   line-height: 1.6;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 a {
   text-decoration: none;
@@ -194,7 +194,7 @@ header .containter nav .links li.active a {
 }
 /* start loading  */
 .loading {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   color: var(--gray);
@@ -323,7 +323,6 @@ header .containter nav .links li.active a {
   .profile-image img {
     width: 270px;
     height: 270px;
-    margin-top: 15px;
   }
   .loading .intro .text {
     width: fit-content;
