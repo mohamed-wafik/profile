@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohamed Wafik</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="image/logo_icon3.png" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Start Header  -->
+    <header>
+      <div class="containter">
+        <div class="logo"><a href="">Wafik</a></div>
+        <nav>
+          <i class="fas fa-bars toggle-menu"></i>
+          <ul class="links">
+            <li data-section="loading"><a href="index.html">Home</a></li>
+            <li data-section="about"><a href="index.html#about">About</a></li>
+            <li data-section="skills">
+              <a href="index.html#skills">Skills</a>
+            </li>
+            <li class="active" data-section="work">
+              <a href="index.html#my-project">Work</a>
+            </li>
+            <li data-section="contact">
+              <a href="index.html#contact-us">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header  -->
+    <!-- Start my project -->
+    <div
+      class="my-project"
+      data-section="work"
+      id="my-project"
+      style="padding-top: 0"
+    >
+      <h2 class="spacial-handing" style="margin-bottom: 0">My Projects</h2>
+      <div class="filter-section">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="more">More</button>
+        </div>
+      </div>
+      <div class="containter"></div>
+    </div>
+    <footer class="site-footer">
+      <div class="containter">
+        <div class="footer-top">
+          <h3>Mohamed Wafik</h3>
+          <p>Crafting elegant solutions with clean code.</p>
+          <ul class="social-icons">
+            <li>
+              <a href="https://linkedin.com/in/mohamed-wafik"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://github.com/mohamed-wafik"
+                ><i class="fab fa-github"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="year"></span> Mohamed Wafik. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <script>
+      let myProject = document.querySelector(".my-project .containter");
+      async function fetchProject() {
+        try {
+          const response = await fetch("./project.json");
+          if (!response.ok) throw new Error("Failed to fetch Projects");
+          const data = await response.json();
+          displayProjects(data);
+        } catch (err) {
+          console.error("Error : ", err);
+          myProject.innerHTML = `<p class="err-fetch">Something went wrong while loading projects.</p>`;
+        }
+      }
+      function displayProjects(data) {
+        myProject.innerHTML = "";
+        data.forEach((skill, index) => {
+          let langange = "";
+          skill.lang.forEach((lang) => {
+            langange += `<span class="lang ${lang}">${lang}</span>`;
+          });
+          myProject.innerHTML += `
+      <div class="box ${skill.category}">
+        <div class="image">
+          <img src="${skill.img}" alt="" />
+          <div class="btns">
+            <a href="${skill.links.view}" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+            <a href="${skill.links.code}" class="btn"><i class="fa-solid fa-code"></i> Code</a>
+          </div>
+        </div>
+        <h3 class="name-project">${skill.title}</h3>
+        <p class="text">${skill.description}</p>
+        <div class="languages">${langange}</div>
+      </div>
+      `;
+        });
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const AllBoxProject = document.querySelectorAll(
+          ".my-project .containter .box"
+        );
+
+        filterButtons.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            filterButtons.forEach((removeAction) => {
+              removeAction.classList.remove("active");
+            });
+            btn.classList.add("active");
+
+            const filter = e.target.getAttribute("data-filter");
+
+            if (filter === "all") {
+              AllBoxProject.forEach((box) => {
+                box.style.display = "block";
+              });
+            } else {
+              AllBoxProject.forEach((box) => {
+                if (box.classList.contains(filter)) {
+                  box.style.display = "block";
+                } else {
+                  box.style.display = "none";
+                }
+              });
+            }
+          });
+        });
+      }
+      fetchProject();
+    </script>
+  </body>
+</html>

@@ -86,10 +86,7 @@ async function fetchProject() {
 }
 function displayProjects(data) {
   myProject.innerHTML = "";
-  data.forEach((skill, index) => {
-    if (index === 4) {
-      return false;
-    }
+  data.slice(0, 4).forEach((skill) => {
     let langange = "";
     skill.lang.forEach((lang) => {
       langange += `<span class="lang ${lang}">${lang}</span>`;
@@ -104,7 +101,7 @@ function displayProjects(data) {
           </div>
         </div>
         <h3 class="name-project">${skill.title}</h3>
-        <p class="text">${skill.category}</p>
+        <p class="text">${skill.description}</p>
         <div class="languages">${langange}</div>
       </div>
       `;

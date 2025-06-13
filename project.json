@@ -2,7 +2,8 @@
   {
     "img": "./image/image-to-do-website.jpeg",
     "title": "To-Do List",
-    "category": "A minimal and functional To-Do List web application developed using HTML, CSS, and JavaScript. It allows users to add, mark as complete, and delete tasks seamlessly. Designed with a clean UI and responsive layout, it’s perfect for improving productivity and practicing dynamic front-end development.",
+    "category": "web",
+    "description": "A minimal and functional To-Do List web application developed using HTML, CSS, and JavaScript. It allows users to add, mark as complete, and delete tasks seamlessly. Designed with a clean UI and responsive layout, it’s perfect for improving productivity and practicing dynamic front-end development.",
     "lang": ["html", "css", "js"],
     "links": {
       "view": "#",
@@ -12,7 +13,8 @@
   {
     "img": "./image/image-template-two.jpeg",
     "title": "template Two",
-    "category": "A clean and responsive website template built as part of the Elzero Web School course. Developed using only HTML and CSS, it showcases layout structuring, responsive design, and elegant UI elements. Ideal for practicing front-end skills and building modern static websites.",
+    "category": "web",
+    "description": "A clean and responsive website template built as part of the Elzero Web School course. Developed using only HTML and CSS, it showcases layout structuring, responsive design, and elegant UI elements. Ideal for practicing front-end skills and building modern static websites.",
     "lang": ["html", "css"],
     "links": {
       "view": "#",
@@ -22,7 +24,8 @@
   {
     "img": "./image/online_bulid_image.jpeg",
     "title": "Ecommerce Website",
-    "category": "A fully responsive online store built with HTML, CSS, and JavaScript. It features a product catalog, interactive UI, add-to-cart functionality, and smooth user experience across devices. Designed with modern layouts and animations to enhance shopping engagement.",
+    "category": "web",
+    "description": "A fully responsive online store built with HTML, CSS, and JavaScript. It features a product catalog, interactive UI, add-to-cart functionality, and smooth user experience across devices. Designed with modern layouts and animations to enhance shopping engagement.",
     "lang": ["html", "css", "js"],
     "links": {
       "view": "#",
@@ -32,7 +35,8 @@
   {
     "img": "./image/imag-profile2.jpeg",
     "title": "Profile",
-    "category": "A personal profile webpage built with HTML, CSS, and JavaScript. It includes a responsive layout, smooth animations, and interactive sections like About Me, Skills, and Contact. Designed to highlight personal information in a modern and user-friendly way.",
+    "category": "web",
+    "description": "A personal profile webpage built with HTML, CSS, and JavaScript. It includes a responsive layout, smooth animations, and interactive sections like About Me, Skills, and Contact. Designed to highlight personal information in a modern and user-friendly way.",
     "lang": ["html", "css", "js"],
     "links": {
       "view": "#",

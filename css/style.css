@@ -748,3 +748,64 @@ footer span {
   color: var(--gray);
 }
 
+/* Start my-project page  */
+.filter-section {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 30px;
+  padding: 15px;
+  background: linear-gradient(135deg, #f7f9fc, #e3eefe);
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #ffffff;
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn:hover {
+  background: #4e91ff;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 145, 255, 0.4);
+}
+
+.filter-btn.active {
+  background: #4e91ff;
+  color: white;
+  box-shadow: 0 4px 12px rgba(78, 145, 255, 0.4);
+}
+@media (max-width: 768px) {
+  .filter-section {
+    padding: 8px;
+    margin: 30px auto 20px;
+  }
+  .filter-buttons {
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+  .filter-btn {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+/* End my-project page  */
+
