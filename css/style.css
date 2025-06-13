@@ -323,6 +323,7 @@ header .containter nav .links li.active a {
   .profile-image img {
     width: 270px;
     height: 270px;
+    margin-top: 15px;
   }
   .loading .intro .text {
     width: fit-content;
