@@ -6,7 +6,7 @@ let buttonOpneLinks = document.querySelector(
 
 buttonOpneLinks.addEventListener("click", (e) => {
   if (!links.classList.contains("open")) {
-    buttonOpneLinks.innerHTML = "x";
+    buttonOpneLinks.innerHTML = `<i class="fa-solid fa-x"></i>`;
   } else {
     buttonOpneLinks.innerHTML = `<i class="fas fa-bars"></i>`;
   }
