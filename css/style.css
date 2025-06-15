@@ -886,6 +886,9 @@ footer span {
   .finish-task {
     width: 90%;
   }
+  .finish-task h1 {
+    font-size: 22px;
+  }
 }
 /* handle error  */
 /* Start animation  */

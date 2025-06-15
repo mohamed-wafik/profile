@@ -1,5 +1,4 @@
 const form = document.getElementById("content-form");
-const status = document.getElementById("form-status");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
