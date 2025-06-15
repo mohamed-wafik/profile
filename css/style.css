@@ -123,6 +123,7 @@ button {
   display: inline-block;
   background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: transform 0.3s ease-in-out;
 }
@@ -874,7 +875,7 @@ footer span {
   z-index: 1100;
   backdrop-filter: blur(2px);
 }
-.finish-task {
+.handle-form {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -890,28 +891,29 @@ footer span {
   padding: 20px;
   z-index: 1200;
 }
-.finish-task span {
+.handle-form span {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   text-align: center;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
 }
-.finish-task span i {
+.handle-form span i {
   font-size: 33px;
   line-height: 80px;
 
 }
-.finish-task h1 {
+.handle-form h1 {
   flex: 1;
   font-size: 25px;
   text-transform: capitalize;
+  color: var(--gray);
 }
 @media (max-width: 450px) {
-  .finish-task {
+  .handle-form {
     width: 90%;
   }
-  .finish-task h1 {
+  .handle-form h1 {
     font-size: 22px;
   }
 }
@@ -933,7 +935,6 @@ footer span {
     opacity: 1;
   }
 }
-
 @keyframes blink {
   from { opacity: 1; }
   to { opacity: 0; }

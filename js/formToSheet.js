@@ -34,7 +34,7 @@ form.addEventListener("submit", (e) => {
     })
     .finally(() => {
       document
-        .querySelector(".finish-task .close")
+        .querySelector(".handle-form .close")
         .addEventListener("click", (e) => {
           document.querySelector(".overlay").remove();
           e.target.parentNode.remove();
@@ -49,7 +49,7 @@ function displayAlert(message, color, check) {
   document.body.appendChild(overlay);
 
   const container = document.createElement("div");
-  container.className = "finish-task";
+  container.className = "handle-form";
 
   const span = document.createElement("span");
   span.style.color = color;
@@ -64,7 +64,6 @@ function displayAlert(message, color, check) {
   const alertTxt = document.createElement("h1");
   const alertTxtNode = document.createTextNode(message);
   alertTxt.appendChild(alertTxtNode);
-  alertTxt.style.color = color;
 
   const buttonCheck = document.createElement("button");
   const buttonCheckTxt = document.createTextNode("ok");
