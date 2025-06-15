@@ -10,13 +10,13 @@ form.addEventListener("submit", (e) => {
   };
 
   fetch(
-    "https://script.google.com/macros/s/AKfycbziQhmQA7tSZ523eBiH9eJJam65_FlHZMqYmAlMDKSOdSYnNVR_WVu6N3KzUYN9KUZd2A/exec",
+    "https://script.google.com/macros/s/AKfycbygC1mMwk8L0SixavpbbSnHXHlh3xCn18wn3HkT7euC9pA9BT7Adlyk944mNDLsVx3wwg/exec",
     {
       method: "POST",
-      body: JSON.stringify(dataForm),
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(dataForm),
     }
   )
     .then((response) => response.json())
