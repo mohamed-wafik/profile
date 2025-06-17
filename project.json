@@ -6,8 +6,8 @@
     "description": "A minimal and functional To-Do List web application developed using HTML, CSS, and JavaScript. It allows users to add, mark as complete, and delete tasks seamlessly. Designed with a clean UI and responsive layout, it’s perfect for improving productivity and practicing dynamic front-end development.",
     "lang": ["html", "css", "js"],
     "links": {
-      "view": "#",
-      "code": "#"
+      "view": "https://cosmic-rugelach-968c38.netlify.app",
+      "code": "https://github.com/mohamed-wafik/To-Do-List"
     }
   },
   {
@@ -28,8 +28,8 @@
     "description": "A fully responsive online store built with HTML, CSS, and JavaScript. It features a product catalog, interactive UI, add-to-cart functionality, and smooth user experience across devices. Designed with modern layouts and animations to enhance shopping engagement.",
     "lang": ["html", "css", "js"],
     "links": {
-      "view": "#",
-      "code": "#"
+      "view": "https://bulid-online-store.netlify.app",
+      "code": "https://github.com/mohamed-wafik/Ecommerce-Website"
     }
   },
   {
@@ -40,7 +40,7 @@
     "lang": ["html", "css", "js"],
     "links": {
       "view": "#",
-      "code": "#"
+      "code": "https://github.com/mohamed-wafik/profile"
     }
   }
 ]
