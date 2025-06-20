@@ -34,5 +34,9 @@
   {
     "img": "./image/logo_sass.png",
     "name": "sass"
+  },
+  {
+    "img": "./image/logo-tailwind-css.png",
+    "name": "tailwind"
   }
 ]

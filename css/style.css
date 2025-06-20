@@ -659,6 +659,12 @@ header .containter nav .links li.active a {
 .my-project .containter + .btn:hover {
   background-color: #ff543d;
 }
+@media (max-width: 726px) {
+  .my-project .containter .box {
+    max-width: 360px;
+    margin: auto;
+  }
+}
 /* End my Projects */
 /* Start contact us  */
 .contact-us {
