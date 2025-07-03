@@ -55,7 +55,7 @@ function displaySkills(data) {
   data.forEach((skill) => {
     mySkill.innerHTML += `
         <div class="box">
-          <div class="image"><img src="${skill.img}" alt="" /></div>
+          <div class="image"><img src="${skill.img}" alt="" loading="lazy"/></div>
           <div class="text">${skill.name}</div>
         </div>
       `;
@@ -84,7 +84,7 @@ function displayProjects(data) {
     myProject.innerHTML += `
       <div class="box">
         <div class="image">
-          <img src="${skill.img}" alt="" />
+          <img src="${skill.img}" alt="" loading="lazy" />
           <div class="btns">
             <a href="${skill.links.view}" class="btn"><i class="fa-solid fa-eye"></i> View</a>
             <a href="${skill.links.code}" class="btn"><i class="fa-solid fa-code"></i> Code</a>

@@ -20,7 +20,7 @@ function displayProjects(data) {
     myProject.innerHTML += `
 <div class="box ${skill.category}">
   <div class="image">
-    <img src="${skill.img}" alt="" />
+    <img src="${skill.img}" alt="" loading="lazy" />
     <div class="btns">
       <a href="${skill.links.view}" class="btn"><i class="fa-solid fa-eye"></i> View</a>
       <a href="${skill.links.code}" class="btn"><i class="fa-solid fa-code"></i> Code</a>
