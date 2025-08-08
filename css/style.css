@@ -103,15 +103,6 @@ ul {
     width: 70px;
   }
 }
-.profile-image img {
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid var(--accent-color);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  animation: glowingShadow 4s ease-in-out infinite;
-}
 input,
 select,
 button {
@@ -592,6 +583,10 @@ header .containter nav .links li.active a {
   }
 }
 @media (max-width: 460px) {
+  .about-content .about-btns a {
+    padding: 10px 8px;
+    border-radius: 15px;
+  }
   .about-content h1 {
     font-size: 23px;
   }
@@ -599,7 +594,7 @@ header .containter nav .links li.active a {
 
 @media (max-width: 385px) {
   .about-content h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .about-content p {
     font-size: 14px;
