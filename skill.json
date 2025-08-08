@@ -38,5 +38,17 @@
   {
     "img": "./image/logo-tailwind-css.png",
     "name": "tailwind"
+  },
+  {
+    "img": "./image/logo_react.png",
+    "name": "react.js"
+  },
+  {
+    "img": "./image/redux-logo.png",
+    "name": "redux"
+  },
+  {
+    "img": "./image/next-js_1.png",
+    "name": "next.js"
   }
 ]
