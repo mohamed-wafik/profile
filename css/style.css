@@ -38,7 +38,7 @@ ul {
 }
 .btn {
   width: fit-content;
-  font-size: 18px;
+  font-size: 16px;
   padding: 12px 15px;
   background: linear-gradient(135deg, #ff6f61, #e55a4f);
   color: white;
@@ -422,7 +422,7 @@ header .containter nav .links li.active a {
 
 @media (max-width: 1024px) {
   .loading {
-    --width-animation: 225px;
+    --width-animation: 217px;
   }
   @media (max-width: 1025px) {
     .profile-image {
@@ -451,9 +451,6 @@ header .containter nav .links li.active a {
     margin-top: 10px;
     width: fit-content;
     margin: 0 auto;
-  }
-  .loading .intro .text button {
-    margin-right: auto;
   }
   .loading .intro .text ul {
     gap: 15px;
@@ -499,13 +496,11 @@ header .containter nav .links li.active a {
   padding: 60px 20px;
 }
 
-.about-section .container {
+.about-section .containter {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: auto;
+  align-items: center;
 }
 
 /* Skill Cards */
@@ -519,7 +514,8 @@ header .containter nav .links li.active a {
 .skill-card {
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -555,7 +551,8 @@ header .containter nav .links li.active a {
   flex: 1 1 400px;
   border-radius: 12px;
   padding: 20px 30px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 .about-content h1 {
@@ -573,7 +570,12 @@ header .containter nav .links li.active a {
   color: var(--gray);
   margin-bottom: 20px;
 }
-
+.about-content .about-btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0.67em 0;
+}
 /* Responsive */
 @media (max-width: 900px) {
   .about-section .container {
@@ -584,15 +586,20 @@ header .containter nav .links li.active a {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 590px) {
   .about-content h1 {
     font-size: 26px;
+  }
+}
+@media (max-width: 460px) {
+  .about-content h1 {
+    font-size: 23px;
   }
 }
 
 @media (max-width: 385px) {
   .about-content h1 {
-    font-size: 22px;
+    font-size: 20px;
   }
   .about-content p {
     font-size: 14px;
@@ -612,7 +619,7 @@ header .containter nav .links li.active a {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px 20px;
 }
 
 .my-skills .containter .box {
@@ -662,7 +669,7 @@ header .containter nav .links li.active a {
 
 @media (max-width: 400px) {
   .my-skills .containter .box {
-    width: 160px;
+    width: 140px;
     padding: 18px 10px;
   }
   .my-skills .containter .box .text {
@@ -673,7 +680,6 @@ header .containter nav .links li.active a {
 /* Start my Projects */
 .my-project {
   padding: 60px 20px;
-  /* background: linear-gradient(135deg, #141e30, #243b55); */
 }
 
 .my-project .containter {
@@ -810,9 +816,9 @@ header .containter nav .links li.active a {
 }
 
 /* Responsive */
-@media (max-width: 726px) {
+@media (max-width: 766px) {
   .my-project .containter .box {
-    max-width: 360px;
+    max-width: 380px;
     margin: auto;
   }
 }
