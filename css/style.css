@@ -68,6 +68,14 @@ ul {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.error {
+  display: none;
+  color: red;
+  font-size: 0.9em;
+}
+.error.open {
+  display: block;
+}
 .spacial-handing {
   width: fit-content;
   margin: 0 auto 60px;
@@ -839,8 +847,19 @@ header .containter nav .links li.active a {
   flex-direction: column;
   gap: 20px;
 }
+
+.contact-us .containter .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.contact-us .containter .btn {
+  padding: 15px 30px;
+}
 .contact-us .containter form input,
 .contact-us .containter form textarea {
+  display: block;
+  width: 100%;
   padding: 15px;
   font-size: 16px;
   border-radius: 10px;
@@ -1028,59 +1047,6 @@ footer span {
   }
 }
 /* End my-project page  */
-/* handle error  */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1100;
-  backdrop-filter: blur(2px);
-}
-.handle-form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  background-color: #fff;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  z-index: 1200;
-}
-.handle-form span {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-}
-.handle-form span i {
-  font-size: 33px;
-  line-height: 80px;
-}
-.handle-form h1 {
-  flex: 1;
-  font-size: 25px;
-  text-transform: capitalize;
-  color: var(--gray);
-}
-@media (max-width: 450px) {
-  .handle-form {
-    width: 90%;
-  }
-  .handle-form h1 {
-    font-size: 22px;
-  }
-}
-/* handle error  */
 /* Start animation  */
 @keyframes typing {
   0%,

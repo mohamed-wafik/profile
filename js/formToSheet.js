@@ -1,78 +1,48 @@
-const form = document.getElementById("content-form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+function validateBeforeSend() {
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const messageInput = document.getElementById("message");
 
-  const dataForm = {
-    name: form.name.value,
-    email: form.email.value,
-    phone: form.phone.value,
-    message: form.message.value,
-  };
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const messageError = document.getElementById("messageError");
 
-  fetch(
-    "https://script.google.com/macros/s/AKfycbygC1mMwk8L0SixavpbbSnHXHlh3xCn18wn3HkT7euC9pA9BT7Adlyk944mNDLsVx3wwg/exec",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dataForm),
-    }
-  )
-    .then((response) => response.json())
-    .then((res) => {
-      if (res.result === "success") {
-        displayAlert("Message sent successfully!", "green", true);
-        form.reset();
-      } else {
-        displayAlert("Failed to send message.", "red", false);
-      }
-    })
-    .catch((error) => {
-      displayAlert("Error sending message.", "red", false);
-      console.error(error);
-    })
-    .finally(() => {
-      document
-        .querySelector(".handle-form .close")
-        .addEventListener("click", (e) => {
-          document.querySelector(".overlay").remove();
-          e.target.parentNode.remove();
-        });
-    });
-});
+  let isValid = true;
 
-function displayAlert(message, color, check) {
-  const overlay = document.createElement("div");
-  overlay.className = "overlay";
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
 
-  document.body.appendChild(overlay);
+  nameError.textContent = "";
+  emailError.textContent = "";
+  messageError.textContent = "";
+  nameError.classList.remove("open");
+  emailError.classList.remove("open");
+  messageError.classList.remove("open");
 
-  const container = document.createElement("div");
-  container.className = "handle-form";
-
-  const span = document.createElement("span");
-  span.style.color = color;
-  const checkIcon = document.createElement("i");
-  if (check) {
-    checkIcon.className = "fa-solid fa-check ";
-  } else {
-    checkIcon.className = "fa-solid fa-x";
+  if (!name || name.length < 3) {
+    nameError.textContent = "Name must be at least 3 characters";
+    nameError.classList.add("open");
+    isValid = false;
   }
-  span.appendChild(checkIcon);
 
-  const alertTxt = document.createElement("h1");
-  const alertTxtNode = document.createTextNode(message);
-  alertTxt.appendChild(alertTxtNode);
+  if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+    emailError.textContent = "Please enter a valid email address";
+    emailError.classList.add("open");
+    isValid = false;
+  }
 
-  const buttonCheck = document.createElement("button");
-  const buttonCheckTxt = document.createTextNode("ok");
-  buttonCheck.appendChild(buttonCheckTxt);
-  buttonCheck.className = "btn close";
+  if (!message || message.length < 5) {
+    messageError.textContent = "Message must be at least 5 characters";
+    messageError.classList.add("open");
+    isValid = false;
+  }
 
-  container.appendChild(span);
-  container.appendChild(alertTxt);
-  container.appendChild(buttonCheck);
+  if (isValid) {
+    nameInput.value = "";
+    emailInput.value = "";
+    messageInput.value = "";
+  }
 
-  document.body.appendChild(container);
+  return isValid;
 }

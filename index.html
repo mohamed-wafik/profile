@@ -168,21 +168,35 @@
     <div class="contact-us" data-section="contact" id="contact-us">
       <h2 class="spacial-handing">Contact Us</h2>
       <div class="containter">
-        <form action="" id="content-form">
-          <input type="text" name="name" placeholder="Enter Your Name" />
-          <input type="text" name="phone" placeholder="Enter Your Phone" />
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="Enter Your Email"
-          />
-          <textarea
-            name="message"
-            required
-            placeholder="Enter Your Message"
-            id=""
-          ></textarea>
+        <form
+          class="contact-form"
+          action="mailto:wafikmohamed725@gmail.com"
+          method="post"
+          enctype="text/plain"
+          onsubmit="return validateBeforeSend()"
+        >
+          <div class="input-group">
+            <input type="text" id="name" name="name" placeholder="Your Name" />
+            <div id="nameError" class="error"></div>
+          </div>
+          <div class="input-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your Email"
+            />
+            <p id="emailError" class="error"></p>
+          </div>
+          <div class="input-group">
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Your Message"
+            ></textarea>
+            <div id="messageError" class="error"></div>
+          </div>
           <button type="submit" class="btn">Send</button>
         </form>
         <div class="info">
