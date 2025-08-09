@@ -47,6 +47,8 @@ ul {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
+  -webkit-box-shadow: 0 4px 14px rgba(255, 111, 97, 0.4);
+  -moz-box-shadow: 0 4px 14px rgba(255, 111, 97, 0.4);
   box-shadow: 0 4px 14px rgba(255, 111, 97, 0.4);
 }
 .btn.outline {
@@ -56,6 +58,8 @@ ul {
 }
 .btn:hover {
   transform: translateY(-2px);
+  -webkit-box-shadow: 0 8px 20px rgba(255, 111, 97, 0.5);
+  -moz-box-shadow: 0 8px 20px rgba(255, 111, 97, 0.5);
   box-shadow: 0 8px 20px rgba(255, 111, 97, 0.5);
 }
 
@@ -97,7 +101,11 @@ ul {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  -webkit-box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3);
+  -moz-box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3);
   box-shadow: 0 2px 8px rgba(255, 111, 97, 0.3);
+  -webkit-animation: underlineGrow 2s ease-in-out infinite alternate;
+  -moz-animation: underlineGrow 2s ease-in-out infinite alternate;
   animation: underlineGrow 2s ease-in-out infinite alternate;
   border-radius: 4px;
 }
@@ -174,7 +182,13 @@ button {
   border: 6px solid transparent;
   border-top: 6px solid var(--accent-color, #ff6f61);
   border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite,
+    glow 1.2s ease-in-out infinite alternate;
+  -moz-animation: spin 1s linear infinite,
+    glow 1.2s ease-in-out infinite alternate;
   animation: spin 1s linear infinite, glow 1.2s ease-in-out infinite alternate;
+  -webkit-box-shadow: 0 0 0 rgba(255, 111, 97, 0.3);
+  -moz-box-shadow: 0 0 0 rgba(255, 111, 97, 0.3);
   box-shadow: 0 0 0 rgba(255, 111, 97, 0.3);
 }
 /* End loading spinner  */
@@ -186,6 +200,8 @@ header {
   width: 100%;
   background-color: var(--primary-color);
   z-index: 1000;
+  -webkit-box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+  -moz-box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
 }
 header .containter {
@@ -215,6 +231,8 @@ header .containter nav .toggle-menu {
     width: 60px;
     border-radius: 7px;
     cursor: pointer;
+    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     transition: 0.3s ease-in-out;
   }
@@ -230,8 +248,14 @@ header .containter nav .toggle-menu {
     background-color: var(--primary-color);
     border: 1px solid #333;
     border-radius: 5px;
+    -webkit-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3),
+      0 0 10px rgba(255, 111, 97, 0.1);
+    -moz-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3),
+      0 0 10px rgba(255, 111, 97, 0.1);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 111, 97, 0.1);
     border-top: 0;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    -moz-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     flex-direction: column;
     justify-content: flex-start;
@@ -239,6 +263,8 @@ header .containter nav .toggle-menu {
     transition: 0.3s ease-in-out;
   }
   header .containter nav .links.open {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    -moz-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
   header .containter nav .links li {
@@ -306,6 +332,8 @@ header .containter nav .links li.active a {
   height: 100%;
   width: 2px;
   background-color: currentColor;
+  -webkit-animation: blink 0.7s infinite alternate;
+  -moz-animation: blink 0.7s infinite alternate;
   animation: blink 0.7s infinite alternate;
 }
 .loading .loading-btns {
@@ -356,6 +384,8 @@ header .containter nav .links li.active a {
   inset: -20px;
   border-radius: 50%;
   border: 2px dashed rgba(255, 255, 255, 0.2);
+  -webkit-animation: rotateOrbit 12s linear infinite;
+  -moz-animation: rotateOrbit 12s linear infinite;
   animation: rotateOrbit 12s linear infinite;
 }
 
@@ -520,6 +550,8 @@ header .containter nav .links li.active a {
   border-radius: 12px;
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -532,6 +564,8 @@ header .containter nav .links li.active a {
 }
 .skill-card:hover {
   transform: translateY(-5px);
+  -webkit-box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
@@ -557,6 +591,8 @@ header .containter nav .links li.active a {
   border-radius: 12px;
   padding: 20px 30px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
@@ -635,8 +671,12 @@ header .containter nav .links li.active a {
   text-align: center;
   padding: 25px 15px;
   border-radius: 18px;
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   transition: transform 0.35s ease, box-shadow 0.35s ease,
     border-color 0.35s ease;
@@ -646,6 +686,8 @@ header .containter nav .links li.active a {
 .my-skills .containter .box:hover {
   transform: translateY(-10px) scale(1.05);
   border-color: rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
 }
 
@@ -700,14 +742,20 @@ header .containter nav .links li.active a {
 .my-project .containter .box {
   overflow: hidden;
   border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .my-project .containter .box:hover {
   transform: translateY(-8px) scale(1.02);
+  -webkit-box-shadow: 0 15px 35px rgba(255, 111, 97, 0.4);
+  -moz-box-shadow: 0 15px 35px rgba(255, 111, 97, 0.4);
   box-shadow: 0 15px 35px rgba(255, 111, 97, 0.4);
 }
 
@@ -871,6 +919,7 @@ header .containter nav .links li.active a {
 .contact-us .containter form textarea:focus {
   border-color: var(--accent-color);
   caret-color: var(--accent-color);
+
   box-shadow: 0 0 5px var(--accent-color);
   outline: none;
 }
@@ -929,6 +978,8 @@ header .containter nav .links li.active a {
     border-radius: 50%;
     text-align: center;
     line-height: 60px;
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   }
 }
@@ -1000,6 +1051,8 @@ footer span {
   padding: 15px;
   background: linear-gradient(135deg, #f7f9fc, #e3eefe);
   border-radius: 30px;
+  -webkit-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 .filter-buttons {

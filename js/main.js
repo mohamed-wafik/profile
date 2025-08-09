@@ -40,6 +40,7 @@ document
   });
 let mySkill = document.querySelector(".my-skills .containter");
 async function fetchSkills() {
+  mySkill.innerHTML = `<div class="spinner"></div>`;
   try {
     const response = await fetch("./skill.json");
     if (!response.ok) throw new Error("Failed to fetch Skills");
@@ -55,7 +56,7 @@ function displaySkills(data) {
   data.forEach((skill) => {
     mySkill.innerHTML += `
         <div class="box">
-          <div class="image"><img src="${skill.img}" alt="" loading="lazy"/></div>
+          <div class="image"><img src="${skill.img}" alt=${skill.name} loading="lazy"/></div>
           <div class="text">${skill.name}</div>
         </div>
       `;
@@ -64,6 +65,7 @@ function displaySkills(data) {
 fetchSkills();
 let myProject = document.querySelector(".my-project .containter");
 async function fetchProject() {
+  myProject.innerHTML = `<div class="spinner"></div>`;
   try {
     const response = await fetch("./project.json");
     if (!response.ok) throw new Error("Failed to fetch Projects");
@@ -76,22 +78,22 @@ async function fetchProject() {
 }
 function displayProjects(data) {
   myProject.innerHTML = "";
-  data.slice(0, 4).forEach((skill) => {
+  data.slice(0, 4).forEach((product) => {
     let langange = "";
-    skill.lang.forEach((lang) => {
+    product.lang.forEach((lang) => {
       langange += `<span class="lang ${lang}">${lang}</span>`;
     });
     myProject.innerHTML += `
       <div class="box">
         <div class="image">
-          <img src="${skill.img}" alt="" loading="lazy" />
+          <img src="${product.img}" alt=${product.name} loading="lazy" />
           <div class="btns">
-            <a href="${skill.links.view}" class="btn"><i class="fa-solid fa-eye"></i> View</a>
-            <a href="${skill.links.code}" class="btn"><i class="fa-solid fa-code"></i> Code</a>
+            <a href="${product.links.view}" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+            <a href="${product.links.code}" class="btn"><i class="fa-solid fa-code"></i> Code</a>
           </div>
         </div>
-        <h3 class="name-project">${skill.title}</h3>
-        <p class="text">${skill.description}</p>
+        <h3 class="name-project">${product.title}</h3>
+        <p class="text">${product.description}</p>
         <div class="languages">${langange}</div>
       </div>
       `;
