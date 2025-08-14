@@ -38,31 +38,46 @@ document
       behavior: "smooth",
     });
   });
-let mySkill = document.querySelector(".my-skills .containter");
-async function fetchSkills() {
-  mySkill.innerHTML = `<div class="spinner"></div>`;
-  try {
-    const response = await fetch("./skill.json");
-    if (!response.ok) throw new Error("Failed to fetch Skills");
-    const data = await response.json();
-    displaySkills(data);
-  } catch (err) {
-    console.error("Error : ", err);
-    mySkill.innerHTML = `<p class="err-fetch">Something went wrong while loading Skills.</p>`;
-  }
-}
-function displaySkills(data) {
-  mySkill.innerHTML = "";
-  data.forEach((skill) => {
-    mySkill.innerHTML += `
-        <div class="box">
-          <div class="image"><img src="${skill.img}" alt=${skill.name} loading="lazy"/></div>
-          <div class="text">${skill.name}</div>
-        </div>
-      `;
-  });
-}
-fetchSkills();
+fetch("../skill.json")
+  .then((res) => res.json())
+  .then((data) => {
+    const container = document.getElementById("skills-container");
+
+    data.forEach((categoryData) => {
+      // Create category section
+      const categoryDiv = document.createElement("div");
+      categoryDiv.classList.add("skill-category");
+
+      const categoryTitle = document.createElement("h3");
+      categoryTitle.textContent = categoryData.category;
+      categoryDiv.appendChild(categoryTitle);
+
+      // Add each skill
+      categoryData.skills.forEach((skill) => {
+        const skillItem = document.createElement("div");
+        skillItem.classList.add("skill-item");
+
+        skillItem.innerHTML = `
+           <div class="box">
+            <div class="content">
+                       <img src="${skill.img}" alt="${skill.name}" />
+           <span>${skill.name}</span>
+            </div>
+           <span class="percent">${skill.level}%</span>
+           </div>
+          <div class="progress-bar">
+            <div class="progress" style="width: ${skill.level}%;"></div>
+          </div>
+        `;
+
+        categoryDiv.appendChild(skillItem);
+      });
+
+      container.appendChild(categoryDiv);
+    });
+  })
+  .catch((err) => console.error("Error loading skills:", err));
+
 let myProject = document.querySelector(".my-project .containter");
 async function fetchProject() {
   myProject.innerHTML = `<div class="spinner"></div>`;

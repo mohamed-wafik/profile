@@ -1,54 +1,53 @@
 [
   {
-    "img": "./image/logo_c++.png",
-    "name": "C++"
+    "category": "Programming Languages",
+    "skills": [
+      { "img": "./image/logo_c++.png", "name": "C++", "level": 90 },
+      { "img": "./image/logo_oop.png", "name": "OOP", "level": 85 },
+      {
+        "img": "./image/logo_typescrit.png",
+        "name": "Typescript",
+        "level": 70
+      },
+      { "img": "./image/logo-html-5-.png", "name": "HTML5", "level": 95 },
+      { "img": "./image/logo-css-3-2048.png", "name": "CSS3", "level": 90 },
+      { "img": "./image/logo_js.png", "name": "Javascript", "level": 85 }
+    ]
   },
   {
-    "img": "./image/logo_oop.png",
-    "name": "OOP"
+    "category": "Frameworks & Libraries",
+    "skills": [
+      {
+        "img": "./image/logo-tailwind-css.png",
+        "name": "Tailwind CSS",
+        "level": 80
+      },
+      { "img": "./image/logo_react.png", "name": "React.js", "level": 85 },
+      { "img": "./image/next-js_1.png", "name": "Next.js", "level": 80 },
+      { "img": "./image/logo_sass.png", "name": "SASS", "level": 75 },
+      { "img": "./image/shadcn-ui.png", "name": "ShadCN UI", "level": 75 },
+      { "img": "./image/vite-js-4096-logo.png", "name": "Vite", "level": 80 },
+      { "img": "./image/redux-logo.png", "name": "Redux", "level": 70 }
+    ]
   },
   {
-    "img": "./image/logo-html-5-.png",
-    "name": "HTML5"
+    "category": "Database & Backend Services",
+    "skills": [
+      { "img": "./image/logo-sql-2.webp", "name": "SQL", "level": 75 },
+      {
+        "img": "./image/prisma_logo-freelogovectors.net_.png",
+        "name": "Prisma",
+        "level": 80
+      },
+      { "img": "./image/mongodb.png", "name": "MongoDB", "level": 78 }
+    ]
   },
   {
-    "img": "./image/logo-css-3-2048.png",
-    "name": "CSS3"
-  },
-  {
-    "img": "./image/logo_js.png",
-    "name": "Javascript"
-  },
-  {
-    "img": "./image/logo-sql-2.webp",
-    "name": "SQL"
-  },
-  {
-    "img": "./image/logo_typescrit.png",
-    "name": "Typescript"
-  },
-  {
-    "img": "./image/logo-git-2.png",
-    "name": "git"
-  },
-  {
-    "img": "./image/logo_sass.png",
-    "name": "sass"
-  },
-  {
-    "img": "./image/logo-tailwind-css.png",
-    "name": "tailwind"
-  },
-  {
-    "img": "./image/logo_react.png",
-    "name": "react.js"
-  },
-  {
-    "img": "./image/redux-logo.png",
-    "name": "redux"
-  },
-  {
-    "img": "./image/next-js_1.png",
-    "name": "next.js"
+    "category": "Tools",
+    "skills": [
+      { "img": "./image/logo-git-2.png", "name": "Git", "level": 80 },
+      { "img": "./image/github_PNG80.png", "name": "GitHub", "level": 80 },
+      { "img": "./image/R.png", "name": "Postman", "level": 75 }
+    ]
   }
 ]

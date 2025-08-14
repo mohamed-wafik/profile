@@ -28,7 +28,7 @@
           <ul class="links">
             <li class="active" data-section="loading"><a href="#">Home</a></li>
             <li data-section="about"><a href="#about">About</a></li>
-            <li data-section="skills"><a href="#skills">Skills</a></li>
+            <li data-section="skills"><a href="#my-skills">Skills</a></li>
             <li data-section="work"><a href="#my-project">Work</a></li>
             <li data-section="contact"><a href="#contact-us">Contact</a></li>
           </ul>
@@ -153,10 +153,10 @@
     </div>
     <!-- End About Us -->
     <!-- Start my Skills  -->
-    <div class="my-skills" data-section="skills" id="skills">
+    <section id="my-skills" class="my-skills containter" data-section="skills">
       <h2 class="spacial-handing">My Skills</h2>
-      <div class="containter"></div>
-    </div>
+      <div id="skills-container"></div>
+    </section>
     <!-- End my Skills  -->
     <!-- Start my project -->
     <div class="my-project" data-section="work" id="my-project">
@@ -191,7 +191,9 @@
             ></textarea>
             <div id="messageError" class="error"></div>
           </div>
-          <button type="submit" class="btn">Send</button>
+          <button type="submit" class="btn">
+            <i class="fa-solid fa-paper-plane"></i> Send
+          </button>
         </form>
         <div class="info">
           <div class="box">
