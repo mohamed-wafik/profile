@@ -42,7 +42,7 @@ ul {
 .btn {
   width: fit-content;
   font-size: 16px;
-  padding: 12px 20px;
+  padding: 12px 15px;
   background: linear-gradient(135deg, var(--accent-color), #2b8bd6);
   color: white;
   border: none;
@@ -93,7 +93,6 @@ ul {
 .btn:hover::before {
   transform: translateX(100%);
 }
-
 .err-fetch {
   width: 100%;
   text-align: center;
@@ -1005,7 +1004,7 @@ header .containter nav .links li.active a {
   padding: 15px;
   font-size: 16px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(77, 181, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--text-color);
   transition: 0.3s ease;
@@ -1013,7 +1012,6 @@ header .containter nav .links li.active a {
 
 .contact-us .containter form input:focus,
 .contact-us .containter form textarea:focus {
-  background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 0 10px rgba(180, 0, 255, 0.4);
   outline: none;
 }
