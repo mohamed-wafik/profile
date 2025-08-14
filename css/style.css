@@ -1004,8 +1004,8 @@ header .containter nav .links li.active a {
   padding: 15px;
   font-size: 16px;
   border-radius: 10px;
-  background: rgba(77, 181, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 212, 255, 0.4);
   color: var(--text-color);
   transition: 0.3s ease;
 }
@@ -1225,7 +1225,7 @@ footer span {
   .filter-btn {
     text-align: center;
     font-size: 14px;
-    padding: 10px 16px;
+    padding: 10px 12px;
   }
 }
 
@@ -1256,17 +1256,6 @@ footer span {
     opacity: 0;
   }
 }
-@keyframes glowingShadow {
-  0% {
-    box-shadow: 0 0 10px rgba(255, 111, 97, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(255, 111, 97, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 10px rgba(255, 111, 97, 0.3);
-  }
-}
 @keyframes underlineGrow {
   0% {
     width: 60px;
@@ -1282,13 +1271,4 @@ footer span {
     transform: rotate(360deg);
   }
 }
-@keyframes glow {
-  from {
-    box-shadow: 0 0 10px rgba(255, 111, 97, 0.3);
-  }
-  to {
-    box-shadow: 0 0 25px rgba(255, 111, 97, 0.6);
-  }
-}
-
 /* End animation  */
