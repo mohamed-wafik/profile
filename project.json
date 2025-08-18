@@ -10,17 +10,7 @@
       "code": "https://github.com/mohamed-wafik/To-Do-List"
     }
   },
-  {
-    "img": "./image/image-template-two.jpeg",
-    "title": "template Two",
-    "category": "web",
-    "description": "A clean and responsive website template built as part of the Elzero Web School course. Developed using only HTML and CSS, it showcases layout structuring, responsive design, and elegant UI elements. Ideal for practicing front-end skills and building modern static websites.",
-    "lang": ["html", "css"],
-    "links": {
-      "view": "#",
-      "code": "#"
-    }
-  },
+
   {
     "img": "./image/online_bulid_image.jpeg",
     "title": "Ecommerce Website",
@@ -33,6 +23,25 @@
     }
   },
   {
+    "img": "./image/full-stack-ecommerce-9ms2.vercel.app.jpeg",
+    "title": "Full-Stack Website",
+    "category": "web",
+    "description": "A complete full-stack web application built with Next.js (App Router), Shadcn UI, Tailwind CSS, Prisma, MongoDB, and JWT authentication. The platform provides both a client-facing website for browsing products, authentication, and orders, and an admin dashboard for managing products, users, and analytics. It includes secure role-based access, responsive UI, and modern design for both client and admin sides.",
+    "lang": [
+      "nextjs",
+      "typescript",
+      "tailwind",
+      "shadcn",
+      "prisma",
+      "mongodb",
+      "jwt"
+    ],
+    "links": {
+      "view": "https://full-stack-ecommerce-9ms2.vercel.app/",
+      "code": "#"
+    }
+  },
+  {
     "img": "./image/image-portfolio-theme-new.jpeg",
     "title": "Profile",
     "category": "web",
@@ -41,6 +50,39 @@
     "links": {
       "view": "#",
       "code": "https://github.com/mohamed-wafik/profile"
+    }
+  },
+  {
+    "img": "./image/image-template-one.jpeg",
+    "title": "Template One",
+    "category": "web",
+    "description": "The first professional website template built during the Elzero Web School course. Fully responsive and developed with HTML and CSS, it demonstrates layout structuring, typography, responsive grids, and reusable components. Ideal for practicing semantic HTML and modern CSS techniques.",
+    "lang": ["html", "css"],
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "img": "./image/image-template-two.jpeg",
+    "title": "Template Two",
+    "category": "web",
+    "description": "A clean and responsive website template built as part of the Elzero Web School course. Developed using only HTML and CSS, it showcases layout structuring, responsive design, and elegant UI elements. Ideal for practicing front-end skills and building modern static websites.",
+    "lang": ["html", "css"],
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "img": "./image/image-template-three.jpeg.jpeg",
+    "title": "Template Three",
+    "category": "web",
+    "description": "A modern and feature-rich website template developed in the Elzero Web School course. Built with pure HTML and CSS, it showcases advanced responsive layouts, creative sections, and clean styling that can be adapted into real-world projects or portfolios.",
+    "lang": ["html", "css"],
+    "links": {
+      "view": "#",
+      "code": "#"
     }
   }
 ]

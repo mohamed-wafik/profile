@@ -352,7 +352,7 @@ header .containter nav .links li.active a {
 }
 /* start loading  */
 .loading {
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   color: var(--gray);
