@@ -27,6 +27,12 @@ body {
   line-height: 1.6;
   padding-top: 100px;
 }
+#bg {
+  background-color: transparent;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
 a {
   text-decoration: none;
   outline: none;
@@ -612,6 +618,7 @@ header .containter nav .links li.active a {
 }
 
 .about-section .containter {
+  background-color: var(--primary-color);
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
@@ -1004,7 +1011,7 @@ header .containter nav .links li.active a {
   padding: 15px;
   font-size: 16px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
+  background-color: var(--primary-color);
   border: 1px solid rgba(0, 212, 255, 0.4);
   color: var(--text-color);
   transition: 0.3s ease;
@@ -1272,3 +1279,9 @@ footer span {
   }
 }
 /* End animation  */
+#bg > canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
