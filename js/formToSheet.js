@@ -1,12 +1,23 @@
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const messageError = document.getElementById("messageError");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("message");
+
+document
+  .querySelectorAll("#contactForm input, #contactForm textarea")
+  .forEach((ele) => {
+    ele.addEventListener("input", (e) => {
+      const error = document.getElementById(`${e.target.name}Error`);
+      if (error) {
+        error.textContent = "";
+        error.classList.remove("open");
+      }
+    });
+  });
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-  const messageInput = document.getElementById("message");
-
-  const nameError = document.getElementById("nameError");
-  const emailError = document.getElementById("emailError");
-  const messageError = document.getElementById("messageError");
 
   let isValid = true;
 
