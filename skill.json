@@ -39,7 +39,12 @@
         "name": "Prisma",
         "level": 80
       },
-      { "img": "./image/mongodb.png", "name": "MongoDB", "level": 78 }
+      { "img": "./image/mongodb.png", "name": "MongoDB", "level": 78 },
+      {
+        "img": "./image/new_logo_express.webp",
+        "name": "Express.js",
+        "level": 75
+      }
     ]
   },
   {

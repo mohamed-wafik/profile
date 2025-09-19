@@ -270,7 +270,7 @@ header .containter nav .toggle-menu {
   display: none;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   header .containter nav .toggle-menu {
     display: flex;
     color: var(--gray);
@@ -281,12 +281,12 @@ header .containter nav .toggle-menu {
     width: 60px;
     border-radius: 7px;
     cursor: pointer;
-    box-shadow: 0 2px 6px rgba(77, 181, 255, 0.15); /* ظل أزرق */
+    box-shadow: 0 2px 6px rgba(77, 181, 255, 0.15);
     transition: 0.3s ease-in-out;
   }
 
   header .containter nav .toggle-menu:active {
-    background-color: rgba(77, 181, 255, 0.05); /* أزرق شفاف */
+    background-color: rgba(77, 181, 255, 0.05);
   }
 
   header .containter nav .links {
