@@ -313,7 +313,9 @@ button {
   letter-spacing: 2px;
   text-transform: uppercase;
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -491,7 +493,7 @@ header .containter nav .toggle-menu {
     flex: 1;
   }
   header .containter .logo a {
-    font-size: 31px;
+    font-size: 25px;
   }
 }
 
