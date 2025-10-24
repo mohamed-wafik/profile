@@ -20,7 +20,9 @@
     <!-- Start Header  -->
     <header>
       <div class="containter">
-        <div class="logo"><a href="">Wafik</a></div>
+        <div class="logo">
+          <a href="">Wafik</a>
+        </div>
         <nav>
           <div class="toggle-menu">
             <i class="fas fa-bars"></i>
@@ -33,6 +35,10 @@
             <li data-section="contact"><a href="#contact-us">Contact</a></li>
           </ul>
         </nav>
+        <label class="theme-toggle">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="theme-slider"></span>
+        </label>
       </div>
     </header>
     <!-- End Header  -->
@@ -251,7 +257,10 @@
         </p>
       </div>
     </footer>
-    <div id="bg"></div>
+    <div id="bg">
+      <canvas id="three-bg"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script type="module" src="./js//background3D.js"></script>
     <script src="./js/formToSheet.js"></script>
     <script src="./js/master.js"></script>

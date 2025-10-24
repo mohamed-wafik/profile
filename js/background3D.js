@@ -1,127 +1,149 @@
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js";
+// simple-dotnet-background.js
+class SimpleDotNetBackground {
+  constructor() {
+    this.scene = null;
+    this.camera = null;
+    this.renderer = null;
+    this.dots = [];
+    this.connections = [];
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-camera.position.z = 120;
+    this.init();
+    this.animate();
+  }
 
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById("bg").appendChild(renderer.domElement);
+  init() {
+    const canvas = document.getElementById("three-bg");
 
-// عدد النقاط
-const PARTICLE_COUNT = 150;
-const positions = new Float32Array(PARTICLE_COUNT * 3);
-const particles = [];
+    this.scene = new THREE.Scene();
+    this.camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      1,
+      1000
+    );
+    this.camera.position.z = 50;
 
-for (let i = 0; i < PARTICLE_COUNT; i++) {
-  positions[i * 3] = (Math.random() - 0.5) * 200;
-  positions[i * 3 + 1] = (Math.random() - 0.5) * 200;
-  positions[i * 3 + 2] = (Math.random() - 0.5) * 200;
+    this.renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      alpha: true,
+    });
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
 
-  particles.push({
-    x: positions[i * 3],
-    y: positions[i * 3 + 1],
-    z: positions[i * 3 + 2],
-    vx: (Math.random() - 0.5) * 0.05,
-    vy: (Math.random() - 0.5) * 0.05,
-    vz: (Math.random() - 0.5) * 0.05,
-  });
-}
+    this.createGridNetwork();
+    window.addEventListener("resize", this.onWindowResize.bind(this));
+  }
 
-const geometry = new THREE.BufferGeometry();
-geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  createGridNetwork() {
+    // Create a grid of dots
+    const gridSize = 6;
+    const spacing = 15;
 
-// 🔹 نقاط صغيرة (مربعات صغيرة)
-const material = new THREE.PointsMaterial({
-  color: 0xffffff,
-  size: 1.2, // 👈 حجم أصغر
-});
+    for (let x = 0; x < gridSize; x++) {
+      for (let y = 0; y < gridSize; y++) {
+        const dot = new THREE.Vector3(
+          (x - gridSize / 2) * spacing,
+          (y - gridSize / 2) * spacing,
+          0
+        );
 
-const points = new THREE.Points(geometry, material);
-scene.add(points);
+        this.dots.push(dot);
+      }
+    }
 
-// 🔹 خطوط بين النقاط
-const lineMaterial = new THREE.LineBasicMaterial({
-  color: 0x4a5568,
-  opacity: 0.5,
-  transparent: true,
-});
+    // Create dots visualization
+    const dotGeometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(this.dots.length * 3);
 
-const lineGeometry = new THREE.BufferGeometry();
-let linePositions = new Float32Array(PARTICLE_COUNT * PARTICLE_COUNT * 3);
-lineGeometry.setAttribute(
-  "position",
-  new THREE.BufferAttribute(linePositions, 3).setUsage(THREE.DynamicDrawUsage)
-);
+    this.dots.forEach((dot, i) => {
+      positions[i * 3] = dot.x;
+      positions[i * 3 + 1] = dot.y;
+      positions[i * 3 + 2] = dot.z;
+    });
 
-const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
-scene.add(lines);
+    dotGeometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(positions, 3)
+    );
 
-// 🔹 تأثير الماوس (Parallax)
-const mouse = { x: 0, y: 0 };
-window.addEventListener("mousemove", (e) => {
-  mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
-  mouse.y = -(e.clientY / window.innerHeight - 0.5) * 2;
-});
+    const dotMaterial = new THREE.PointsMaterial({
+      color: 0x68217a, // .NET purple
+      size: 2,
+      transparent: true,
+      opacity: 0.8,
+    });
 
-function animate() {
-  requestAnimationFrame(animate);
+    this.dotMesh = new THREE.Points(dotGeometry, dotMaterial);
+    this.scene.add(this.dotMesh);
 
-  const pos = geometry.attributes.position.array;
-  let linePos = lines.geometry.attributes.position.array;
-  let idx = 0;
+    // Create connections
+    this.createGridConnections();
 
-  for (let i = 0; i < PARTICLE_COUNT; i++) {
-    particles[i].x += particles[i].vx;
-    particles[i].y += particles[i].vy;
-    particles[i].z += particles[i].vz;
+    // Store original positions
+    this.originalPositions = positions.slice();
+  }
 
-    if (particles[i].x > 100 || particles[i].x < -100) particles[i].vx *= -1;
-    if (particles[i].y > 100 || particles[i].y < -100) particles[i].vy *= -1;
-    if (particles[i].z > 100 || particles[i].z < -100) particles[i].vz *= -1;
+  createGridConnections() {
+    const gridSize = 6;
 
-    pos[i * 3] = particles[i].x;
-    pos[i * 3 + 1] = particles[i].y;
-    pos[i * 3 + 2] = particles[i].z;
+    // Connect horizontally and vertically
+    for (let x = 0; x < gridSize; x++) {
+      for (let y = 0; y < gridSize; y++) {
+        const index = x * gridSize + y;
 
-    for (let j = i + 1; j < PARTICLE_COUNT; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dz = particles[i].z - particles[j].z;
-      const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+        // Connect to right neighbor
+        if (x < gridSize - 1) {
+          this.createConnection(this.dots[index], this.dots[index + gridSize]);
+        }
 
-      if (dist < 30) {
-        linePos[idx++] = particles[i].x;
-        linePos[idx++] = particles[i].y;
-        linePos[idx++] = particles[i].z;
-
-        linePos[idx++] = particles[j].x;
-        linePos[idx++] = particles[j].y;
-        linePos[idx++] = particles[j].z;
+        // Connect to bottom neighbor
+        if (y < gridSize - 1) {
+          this.createConnection(this.dots[index], this.dots[index + 1]);
+        }
       }
     }
   }
 
-  geometry.attributes.position.needsUpdate = true;
-  lines.geometry.setDrawRange(0, idx / 3);
-  lines.geometry.attributes.position.needsUpdate = true;
+  createConnection(dot1, dot2) {
+    const geometry = new THREE.BufferGeometry().setFromPoints([dot1, dot2]);
+    const material = new THREE.LineBasicMaterial({
+      color: 0x512d6d,
+      transparent: true,
+      opacity: 0.3,
+      linewidth: 1,
+    });
 
-  // 🔹 حركة الكاميرا مع الماوس
-  camera.position.x += (mouse.x * 10 - camera.position.x) * 0.05;
-  camera.position.y += (mouse.y * 10 - camera.position.y) * 0.05;
+    const line = new THREE.Line(geometry, material);
+    this.scene.add(line);
+    this.connections.push(line);
+  }
 
-  renderer.render(scene, camera);
+  animate() {
+    requestAnimationFrame(this.animate.bind(this));
+
+    const time = Date.now() * 0.001;
+    const positions = this.dotMesh.geometry.attributes.position.array;
+
+    // Gentle wave animation
+    for (let i = 0; i < this.dots.length; i++) {
+      const i3 = i * 3;
+      const x = this.originalPositions[i3];
+      const y = this.originalPositions[i3 + 1];
+
+      positions[i3 + 2] = Math.sin(time + x * 0.1 + y * 0.1) * 3;
+    }
+
+    this.dotMesh.geometry.attributes.position.needsUpdate = true;
+
+    this.renderer.render(this.scene, this.camera);
+  }
+
+  onWindowResize() {
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+  }
 }
 
-animate();
-
-window.addEventListener("resize", () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+document.addEventListener("DOMContentLoaded", () => {
+  new SimpleDotNetBackground();
 });

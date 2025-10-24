@@ -39,6 +39,10 @@
             </li>
           </ul>
         </nav>
+        <label class="theme-toggle">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="theme-slider"></span>
+        </label>
       </div>
     </header>
     <!-- End Header  -->
@@ -92,7 +96,10 @@
         </p>
       </div>
     </footer>
-    <div id="bg"></div>
+    <div id="bg">
+      <canvas id="three-bg"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script type="module" src="./js//background3D.js"></script>
     <script src="./js/master.js"></script>
     <script src="./js/my-project.js"></script>

@@ -19,3 +19,23 @@ buttonOpneLinks.addEventListener("click", (e) => {
   }
   links.classList.toggle("open");
 });
+// Theme toggle functionality
+const themeToggle = document.getElementById("theme-toggle");
+const currentTheme = localStorage.getItem("theme");
+
+// Set initial theme
+if (currentTheme === "light") {
+  document.documentElement.setAttribute("data-theme", "light");
+  themeToggle.checked = true;
+}
+
+// Toggle theme on checkbox change
+themeToggle.addEventListener("change", function () {
+  if (this.checked) {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+    localStorage.setItem("theme", "dark");
+  }
+});

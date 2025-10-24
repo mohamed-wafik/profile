@@ -42,6 +42,26 @@
     }
   },
   {
+    "img": "./image/chat-app.jpeg",
+    "title": "Chat App",
+    "category": "web",
+    "description": "A modern real-time chat application built with React, TailwindCSS, DaisyUI, Node.js, Express, MongoDB, and Socket.io. It features secure user authentication with JWT, real-time messaging, online status tracking, and clean UI using DaisyUI components. This project demonstrates full-stack development skills with a focus on scalability, responsive design, and real-time communication.",
+    "lang": [
+      "react",
+      "tailwind",
+      "daisyui",
+      "nodejs",
+      "express",
+      "mongodb",
+      "socket.io",
+      "jwt"
+    ],
+    "links": {
+      "view": "#",
+      "code": "https://github.com/mohamed-wafik/chat-app"
+    }
+  },
+  {
     "img": "./image/image-portfolio-theme-new.jpeg",
     "title": "Profile",
     "category": "web",
