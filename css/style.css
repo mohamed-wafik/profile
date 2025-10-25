@@ -314,7 +314,6 @@ button {
   text-transform: uppercase;
   position: relative;
   display: inline-flex;
-  justify-content: center;
   align-items: center;
 
   background: var(--accent-gradient);
@@ -493,7 +492,7 @@ header .containter nav .toggle-menu {
     flex: 1;
   }
   header .containter .logo a {
-    font-size: 25px;
+    font-size: 27px;
   }
 }
 
@@ -1304,7 +1303,7 @@ header .containter nav .links li.active a {
   }
   .contact-us .containter .info {
     order: -1;
-    width: 100%;
+    width: 75%;
     margin-bottom: 50px;
   }
   .contact-us .containter .info .box {
@@ -1316,7 +1315,8 @@ header .containter nav .links li.active a {
 }
 
 @media (max-width: 600px) {
-  .contact-us .containter form {
+  .contact-us .containter form,
+  .contact-us .containter .info {
     width: 100%;
   }
 }
