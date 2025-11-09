@@ -1,16 +1,15 @@
 [
   {
-    "img": "./image/image-to-do-website.jpeg",
-    "title": "To-Do List",
+    "img": "./image/image_dashboard.jpeg",
+    "title": "Admin Dashboard",
     "category": "web",
-    "description": "A minimal and functional To-Do List web application developed using HTML, CSS, and JavaScript. It allows users to add, mark as complete, and delete tasks seamlessly. Designed with a clean UI and responsive layout, it’s perfect for improving productivity and practicing dynamic front-end development.",
-    "lang": ["html", "css", "js"],
+    "description": "A powerful and responsive Admin Dashboard built using the MVC architecture in Laravel. It includes user, product, and order management, as well as analytics visualized with interactive charts. Features include authentication, CRUD operations, real-time statistics, and clean UI components styled with Tailwind CSS. Designed to demonstrate full-stack development using PHP Laravel and Blade templating.",
+    "lang": ["php", "laravel", "mysql", "tailwind", "blade"],
     "links": {
-      "view": "https://cosmic-rugelach-968c38.netlify.app",
-      "code": "https://github.com/mohamed-wafik/To-Do-List"
+      "view": "#",
+      "code": "#"
     }
   },
-
   {
     "img": "./image/online_bulid_image.jpeg",
     "title": "Ecommerce Website",
@@ -59,6 +58,17 @@
     "links": {
       "view": "#",
       "code": "https://github.com/mohamed-wafik/chat-app"
+    }
+  },
+  {
+    "img": "./image/image-to-do-website.jpeg",
+    "title": "To-Do List",
+    "category": "web",
+    "description": "A minimal and functional To-Do List web application developed using HTML, CSS, and JavaScript. It allows users to add, mark as complete, and delete tasks seamlessly. Designed with a clean UI and responsive layout, it’s perfect for improving productivity and practicing dynamic front-end development.",
+    "lang": ["html", "css", "js"],
+    "links": {
+      "view": "https://cosmic-rugelach-968c38.netlify.app",
+      "code": "https://github.com/mohamed-wafik/To-Do-List"
     }
   },
   {

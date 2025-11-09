@@ -827,6 +827,7 @@ header .containter nav .links li.active a {
   border: 1px solid var(--border-color);
   background: var(--card-bg);
   box-shadow: 0 6px 18px var(--shadow-accent);
+  backdrop-filter: blur(8px);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -867,6 +868,7 @@ header .containter nav .links li.active a {
   border: 1px solid var(--border-color);
   background: var(--card-bg);
   box-shadow: 0 6px 18px var(--shadow-accent);
+  backdrop-filter: blur(8px);
 }
 
 .about-content h1 {
