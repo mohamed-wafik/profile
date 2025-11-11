@@ -956,7 +956,7 @@ header .containter nav .links li.active a {
 /* End About */
 /* start Timeline  */
 .timeline-section {
-  padding: 60px 10%;
+  padding: 60px 5%;
   position: relative;
   overflow: hidden;
 }
