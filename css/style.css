@@ -332,14 +332,6 @@ button {
   transform: scale(1.08) rotate(-1deg);
 }
 
-.logo a::before {
-  content: "<";
-}
-
-.logo a::after {
-  content: "/>";
-}
-
 @keyframes logoGlow {
   0% {
     text-shadow: 0 0 8px var(--shadow-accent), 0 0 16px rgba(180, 0, 255, 0.3);
