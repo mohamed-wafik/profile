@@ -10,7 +10,7 @@ let mouse = {
 };
 
 const particles = [];
-const particleCount = 250;
+const particleCount = 175;
 const mouseRadius = 100;
 
 class Particle {
