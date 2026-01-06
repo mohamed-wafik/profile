@@ -1,149 +1,96 @@
-// simple-dotnet-background.js
-class SimpleDotNetBackground {
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let mouse = {
+  x: null,
+  y: null,
+};
+
+const particles = [];
+const particleCount = 250;
+const mouseRadius = 100;
+
+class Particle {
   constructor() {
-    this.scene = null;
-    this.camera = null;
-    this.renderer = null;
-    this.dots = [];
-    this.connections = [];
-
-    this.init();
-    this.animate();
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.baseX = this.x;
+    this.baseY = this.y;
+    this.size = Math.random() * 3 + 1;
+    this.speedX = (Math.random() - 0.5) * 0.3;
+    this.speedY = (Math.random() - 0.5) * 0.3;
+    this.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
   }
 
-  init() {
-    const canvas = document.getElementById("three-bg");
+  update() {
+    this.baseX += this.speedX;
+    this.baseY += this.speedY;
 
-    this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      1,
-      1000
-    );
-    this.camera.position.z = 50;
+    if (this.baseX < 0) this.baseX = canvas.width;
+    if (this.baseX > canvas.width) this.baseX = 0;
+    if (this.baseY < 0) this.baseY = canvas.height;
+    if (this.baseY > canvas.height) this.baseY = 0;
 
-    this.renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-      alpha: true,
-    });
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    if (mouse.x != null && mouse.y != null) {
+      const dx = mouse.x - this.baseX;
+      const dy = mouse.y - this.baseY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
 
-    this.createGridNetwork();
-    window.addEventListener("resize", this.onWindowResize.bind(this));
-  }
-
-  createGridNetwork() {
-    // Create a grid of dots
-    const gridSize = 6;
-    const spacing = 15;
-
-    for (let x = 0; x < gridSize; x++) {
-      for (let y = 0; y < gridSize; y++) {
-        const dot = new THREE.Vector3(
-          (x - gridSize / 2) * spacing,
-          (y - gridSize / 2) * spacing,
-          0
-        );
-
-        this.dots.push(dot);
+      if (distance < mouseRadius) {
+        const force = (mouseRadius - distance) / mouseRadius;
+        const angle = Math.atan2(dy, dx);
+        this.x = this.baseX - Math.cos(angle) * force * 50;
+        this.y = this.baseY - Math.sin(angle) * force * 50;
+      } else {
+        // ترجع لمكانها بشكل ناعم
+        this.x += (this.baseX - this.x) * 0.05;
+        this.y += (this.baseY - this.y) * 0.05;
       }
-    }
-
-    // Create dots visualization
-    const dotGeometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(this.dots.length * 3);
-
-    this.dots.forEach((dot, i) => {
-      positions[i * 3] = dot.x;
-      positions[i * 3 + 1] = dot.y;
-      positions[i * 3 + 2] = dot.z;
-    });
-
-    dotGeometry.setAttribute(
-      "position",
-      new THREE.BufferAttribute(positions, 3)
-    );
-
-    const dotMaterial = new THREE.PointsMaterial({
-      color: 0x68217a, // .NET purple
-      size: 2,
-      transparent: true,
-      opacity: 0.8,
-    });
-
-    this.dotMesh = new THREE.Points(dotGeometry, dotMaterial);
-    this.scene.add(this.dotMesh);
-
-    // Create connections
-    this.createGridConnections();
-
-    // Store original positions
-    this.originalPositions = positions.slice();
-  }
-
-  createGridConnections() {
-    const gridSize = 6;
-
-    // Connect horizontally and vertically
-    for (let x = 0; x < gridSize; x++) {
-      for (let y = 0; y < gridSize; y++) {
-        const index = x * gridSize + y;
-
-        // Connect to right neighbor
-        if (x < gridSize - 1) {
-          this.createConnection(this.dots[index], this.dots[index + gridSize]);
-        }
-
-        // Connect to bottom neighbor
-        if (y < gridSize - 1) {
-          this.createConnection(this.dots[index], this.dots[index + 1]);
-        }
-      }
+    } else {
+      this.x = this.baseX;
+      this.y = this.baseY;
     }
   }
 
-  createConnection(dot1, dot2) {
-    const geometry = new THREE.BufferGeometry().setFromPoints([dot1, dot2]);
-    const material = new THREE.LineBasicMaterial({
-      color: 0x512d6d,
-      transparent: true,
-      opacity: 0.3,
-      linewidth: 1,
-    });
-
-    const line = new THREE.Line(geometry, material);
-    this.scene.add(line);
-    this.connections.push(line);
-  }
-
-  animate() {
-    requestAnimationFrame(this.animate.bind(this));
-
-    const time = Date.now() * 0.001;
-    const positions = this.dotMesh.geometry.attributes.position.array;
-
-    // Gentle wave animation
-    for (let i = 0; i < this.dots.length; i++) {
-      const i3 = i * 3;
-      const x = this.originalPositions[i3];
-      const y = this.originalPositions[i3 + 1];
-
-      positions[i3 + 2] = Math.sin(time + x * 0.1 + y * 0.1) * 3;
-    }
-
-    this.dotMesh.geometry.attributes.position.needsUpdate = true;
-
-    this.renderer.render(this.scene, this.camera);
-  }
-
-  onWindowResize() {
-    this.camera.aspect = window.innerWidth / window.innerHeight;
-    this.camera.updateProjectionMatrix();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  new SimpleDotNetBackground();
+for (let i = 0; i < particleCount; i++) {
+  particles.push(new Particle());
+}
+
+window.addEventListener("mousemove", (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
 });
+
+window.addEventListener("mouseout", () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach((particle) => {
+    particle.update();
+    particle.draw();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
