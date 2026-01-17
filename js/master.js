@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
 let links = document.querySelector("header .containter nav .links");
 
 let buttonOpneLinks = document.querySelector(
-  "header .containter nav .toggle-menu"
+  "header .containter nav .toggle-menu",
 );
 
 buttonOpneLinks.addEventListener("click", (e) => {
