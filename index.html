@@ -76,13 +76,21 @@
         }
       </script>
 
-      <!-- Fonts & Styles -->
+      <!-- Fonts & Styles - Preload fonts to reduce render blocking -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Orbitron:wght@600&display=swap"
         rel="stylesheet"
       />
+      <!-- Critical CSS inline or load first -->
       <link rel="stylesheet" href="css/normalize.css" />
-      <link rel="stylesheet" href="css/all.min.css" />
+      <link
+        rel="stylesheet"
+        href="css/all.min.css"
+        media="print"
+        onload="this.media = 'all'"
+      />
       <link rel="stylesheet" href="css/style.css" />
     </head>
   </head>
@@ -134,7 +142,7 @@
       <div class="containter">
         <div class="intro">
           <div class="text">
-            <h2>Hi There, <br />I'm Mohamed <span>Wafik</span></h2>
+            <h1>Hi There, <br />I'm Mohamed <span>Wafik</span></h1>
             <p>I Am Intro <span>Web Developer</span></p>
             <div class="loading-btns">
               <button class="btn">
@@ -153,20 +161,34 @@
             <div class="profile-image">
               <img
                 src="image/photo_2025-02-02_19-43-22.jpg"
-                alt="My Photo"
+                alt="Profile photo of Mohamed Wafik, Full Stack Web Developer"
+                width="400"
+                height="400"
                 loading="lazy"
               />
               <div class="orbit">
-                <a href="https://www.linkedin.com/in/mohamed-wafik-37a831306"
-                  ><i class="fa-brands fa-linkedin"></i
+                <a
+                  href="https://www.linkedin.com/in/mohamed-wafik-37a831306"
+                  aria-label="LinkedIn profile"
+                  ><i class="fa-brands fa-linkedin" aria-hidden="true"></i
                 ></a>
-                <a href="https://github.com/mohamed-wafik"
-                  ><i class="fa-brands fa-github"></i
+                <a
+                  href="https://github.com/mohamed-wafik"
+                  aria-label="GitHub profile"
+                  ><i class="fa-brands fa-github" aria-hidden="true"></i
                 ></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-telegram"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-dev"></i></a>
+                <a href="#" aria-label="Twitter profile"
+                  ><i class="fa-brands fa-twitter" aria-hidden="true"></i
+                ></a>
+                <a href="#" aria-label="Telegram profile"
+                  ><i class="fa-brands fa-telegram" aria-hidden="true"></i
+                ></a>
+                <a href="#" aria-label="Instagram profile"
+                  ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+                ></a>
+                <a href="#" aria-label="Dev.to profile"
+                  ><i class="fa-brands fa-dev" aria-hidden="true"></i
+                ></a>
               </div>
             </div>
           </div>
@@ -179,7 +201,7 @@
       <h2 class="spacial-handing">About me</h2>
       <div class="containter">
         <div class="about-content">
-          <h1>Hi, I'm <span>Mohamed Wafik</span></h1>
+          <h3>Hi, I'm <span>Mohamed Wafik</span></h3>
           <p>
             My programming journey began with C++ during college, giving me a
             solid foundation in OOP and data structures. I later explored SQL
@@ -305,28 +327,42 @@
       <div class="containter">
         <form class="contact-form" method="post" id="contactForm">
           <div class="input-group">
-            <input type="text" id="name" name="name" placeholder="Your Name" />
-            <div id="nameError" class="error"></div>
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+              aria-describedby="nameError"
+            />
+            <div id="nameError" class="error" role="alert"></div>
           </div>
           <div class="input-group">
+            <label for="email">Your Email</label>
             <input
               type="email"
               id="email"
               name="email"
-              placeholder="Your Email"
+              placeholder="Enter your email"
+              required
+              aria-describedby="emailError"
             />
-            <p id="emailError" class="error"></p>
+            <p id="emailError" class="error" role="alert"></p>
           </div>
           <div class="input-group">
+            <label for="message">Your Message</label>
             <textarea
               id="message"
               name="message"
               rows="5"
-              placeholder="Your Message"
+              placeholder="Enter your message"
+              required
+              aria-describedby="messageError"
             ></textarea>
-            <div id="messageError" class="error"></div>
+            <div id="messageError" class="error" role="alert"></div>
           </div>
-          <button type="submit" class="btn">
+          <button type="submit" class="btn" aria-label="Send your message">
             <i class="fa-solid fa-paper-plane"></i> Send
           </button>
         </form>
@@ -362,20 +398,28 @@
           <p>Crafting elegant solutions with clean code.</p>
           <ul class="social-icons">
             <li>
-              <a href="https://www.linkedin.com/in/mohamed-wafik-37a831306"
-                ><i class="fab fa-linkedin"></i
+              <a
+                href="https://www.linkedin.com/in/mohamed-wafik-37a831306"
+                aria-label="Visit LinkedIn profile"
+                ><i class="fab fa-linkedin" aria-hidden="true"></i
               ></a>
             </li>
             <li>
-              <a href="https://github.com/mohamed-wafik"
-                ><i class="fab fa-github"></i
+              <a
+                href="https://github.com/mohamed-wafik"
+                aria-label="Visit GitHub profile"
+                ><i class="fab fa-github" aria-hidden="true"></i
               ></a>
             </li>
             <li>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Visit Twitter profile"
+                ><i class="fab fa-twitter" aria-hidden="true"></i
+              ></a>
             </li>
             <li>
-              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Visit Instagram profile"
+                ><i class="fab fa-instagram" aria-hidden="true"></i
+              ></a>
             </li>
           </ul>
         </div>
