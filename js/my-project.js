@@ -1,4 +1,5 @@
-let myProject = document.querySelector(".my-project .containter");
+// Cache DOM elements
+const myProjectContainer = document.querySelector(".my-project .containter");
 let projectsCache = null;
 
 async function fetchProject() {
@@ -10,45 +11,51 @@ async function fetchProject() {
 
     const response = await fetch("./project.json");
     if (!response.ok) throw new Error("Failed to fetch Projects");
+
     const data = await response.json();
     projectsCache = data;
     displayProjects(data);
   } catch (err) {
-    console.error("Error : ", err);
-    myProject.innerHTML = `<p class="err-fetch">Something went wrong while loading projects.</p>`;
+    console.error("Error fetching projects:", err);
+    if (myProjectContainer) {
+      myProjectContainer.innerHTML =
+        '<p class="err-fetch">Failed to load projects</p>';
+    }
   }
 }
 
 function displayProjects(data) {
-  myProject.innerHTML = "";
+  if (!myProjectContainer) return;
+  myProjectContainer.innerHTML = "";
 
-  // Use DocumentFragment to avoid multiple reflows
   const fragment = document.createDocumentFragment();
 
-  data.forEach((skill) => {
+  data.forEach((project) => {
     const box = document.createElement("div");
-    box.className = `box ${skill.category}`;
+    box.className = `box ${project.category || ""}`;
 
     const imageDiv = document.createElement("div");
     imageDiv.className = "image";
 
     const img = document.createElement("img");
-    img.src = skill.img;
-    img.alt = skill.title || "";
+    img.src = project.img;
+    img.alt = project.title || "";
     img.loading = "lazy";
 
     const btnsDiv = document.createElement("div");
     btnsDiv.className = "btns";
 
+    // Create view button
     const viewBtn = document.createElement("a");
-    viewBtn.href = skill.links.view;
+    viewBtn.href = project.links?.view || "#";
     viewBtn.className = "btn";
-    viewBtn.innerHTML = `<i class="fa-solid fa-eye"></i> View`;
+    viewBtn.innerHTML = '<i class="fa-solid fa-eye"></i> View';
 
+    // Create code button
     const codeBtn = document.createElement("a");
-    codeBtn.href = skill.links.code;
+    codeBtn.href = project.links?.code || "#";
     codeBtn.className = "btn";
-    codeBtn.innerHTML = `<i class="fa-solid fa-code"></i> Code`;
+    codeBtn.innerHTML = '<i class="fa-solid fa-code"></i> Code';
 
     btnsDiv.appendChild(viewBtn);
     btnsDiv.appendChild(codeBtn);
@@ -57,21 +64,23 @@ function displayProjects(data) {
 
     const title = document.createElement("h3");
     title.className = "name-project";
-    title.textContent = skill.title;
+    title.textContent = project.title || "";
 
     const desc = document.createElement("p");
     desc.className = "text";
-    desc.textContent = skill.description;
+    desc.textContent = project.description || "";
 
     const langDiv = document.createElement("div");
     langDiv.className = "languages";
 
-    skill.lang.forEach((lang) => {
-      const langSpan = document.createElement("span");
-      langSpan.className = `lang ${lang}`;
-      langSpan.textContent = lang;
-      langDiv.appendChild(langSpan);
-    });
+    if (Array.isArray(project.lang)) {
+      project.lang.forEach((lang) => {
+        const langSpan = document.createElement("span");
+        langSpan.className = `lang ${lang}`;
+        langSpan.textContent = lang;
+        langDiv.appendChild(langSpan);
+      });
+    }
 
     box.appendChild(imageDiv);
     box.appendChild(title);
@@ -81,45 +90,55 @@ function displayProjects(data) {
     fragment.appendChild(box);
   });
 
-  myProject.appendChild(fragment);
+  myProjectContainer.appendChild(fragment);
   setupFilterButtons();
 }
 
 function setupFilterButtons() {
   const filterButtons = document.querySelectorAll(".filter-btn");
-  const AllBoxProject = document.querySelectorAll(
+  const projectBoxes = document.querySelectorAll(
     ".my-project .containter .box",
   );
 
-  filterButtons.forEach((btn) => {
-    // Remove previous listeners by cloning
-    const newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
-  });
+  if (!filterButtons.length || !projectBoxes.length) return;
 
-  // Re-query after replacing buttons
-  document.querySelectorAll(".filter-btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      document.querySelectorAll(".filter-btn").forEach((removeAction) => {
-        removeAction.classList.remove("active");
+  // Use event delegation instead of attaching listeners to each button
+  const filterContainer = filterButtons[0]?.parentElement;
+
+  if (filterContainer) {
+    // Remove old listeners by cloning
+    const newFilterContainer = filterContainer.cloneNode(true);
+    filterContainer.parentNode?.replaceChild(
+      newFilterContainer,
+      filterContainer,
+    );
+
+    newFilterContainer.addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+
+      // Update active state
+      newFilterContainer.querySelectorAll(".filter-btn").forEach((button) => {
+        button.classList.remove("active");
       });
       btn.classList.add("active");
 
-      const filter = e.target.getAttribute("data-filter");
-
-      document
-        .querySelectorAll(".my-project .containter .box")
-        .forEach((box) => {
-          if (filter === "all") {
-            box.style.display = "block";
-          } else if (box.classList.contains(filter)) {
-            box.style.display = "block";
-          } else {
-            box.style.display = "none";
-          }
-        });
+      // Filter projects
+      const filter = btn.getAttribute("data-filter");
+      projectBoxes.forEach((box) => {
+        if (filter === "all" || box.classList.contains(filter)) {
+          box.style.display = "block";
+        } else {
+          box.style.display = "none";
+        }
+      });
     });
-  });
+  }
 }
 
-fetchProject();
+// Load projects on page ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", fetchProject);
+} else {
+  fetchProject();
+}

@@ -7,70 +7,61 @@ function deferredTask(callback, timeout = 2000) {
   }
 }
 
-// Throttle function to optimize scroll performance
-function throttle(func, wait) {
-  let timeout = null;
-  let previous = 0;
-  return function executedFunction(...args) {
-    const now = Date.now();
-    const remaining = wait - (now - previous);
-    if (remaining <= 0 || remaining > wait) {
-      if (timeout) {
-        clearTimeout(timeout);
-        timeout = null;
-      }
-      previous = now;
-      func.apply(this, args);
-    } else if (!timeout) {
-      timeout = setTimeout(() => {
-        previous = Date.now();
-        timeout = null;
-        func.apply(this, args);
-      }, remaining);
-    }
-  };
-}
+// RequestAnimationFrame-based scroll optimization (60fps)
+let scrolling = false;
+let scrollTimeout;
 
 function handleScroll() {
-  const sections = [
-    document.querySelector(".loading"),
-    document.querySelector(".about-section"),
-    document.querySelector(".my-skills"),
-    document.querySelector(".my-project"),
-    document.querySelector(".contact-us"),
-  ].filter(Boolean);
+  if (scrolling) return;
+  scrolling = true;
 
-  sections.forEach((ele) => {
-    handleActice(ele);
+  requestAnimationFrame(() => {
+    const sections = [
+      document.querySelector(".loading"),
+      document.querySelector(".about-section"),
+      document.querySelector(".my-skills"),
+      document.querySelector(".my-project"),
+      document.querySelector(".contact-us"),
+    ].filter(Boolean);
+
+    if (sections.length) {
+      const navLinks = document.querySelectorAll(
+        "header .containter nav .links li",
+      );
+      if (navLinks.length) {
+        const scrollPos = window.pageYOffset + window.innerHeight / 2;
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.dataset.section;
+
+          if (
+            scrollPos >= sectionTop &&
+            scrollPos < sectionTop + sectionHeight
+          ) {
+            navLinks.forEach((link) => {
+              link.classList.toggle(
+                "active",
+                link.dataset.section === sectionId,
+              );
+            });
+          }
+        });
+      }
+    }
+
+    scrolling = false;
   });
+
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    scrolling = false;
+  }, 150);
 }
 
-function handleActice(ele) {
-  if (!ele) return;
-
-  const skillsOffsetTop = ele.offsetTop;
-  const skillsOuterHeight = ele.offsetHeight;
-  const windowHeight = window.innerHeight;
-  const windowScrollTop = window.pageYOffset;
-
-  if (
-    windowScrollTop + 200 >
-    skillsOffsetTop + skillsOuterHeight - windowHeight
-  ) {
-    document
-      .querySelectorAll("header .containter nav .links li")
-      .forEach((li) => {
-        if (li.dataset.section === ele.dataset.section) {
-          li.classList.add("active");
-        } else {
-          li.classList.remove("active");
-        }
-      });
-  }
-}
-
-// Use throttled scroll handler - fires max every 150ms
-window.addEventListener("scroll", throttle(handleScroll, 150));
+// Use passive scroll listener for better performance
+window.addEventListener("scroll", handleScroll, { passive: true });
 
 // Setup button handler safely
 const aboutBtn = document.querySelector(".loading .intro .text button");
